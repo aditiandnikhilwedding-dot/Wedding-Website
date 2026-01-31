@@ -52,7 +52,7 @@ const WeddingHeader = ({
           translate-y-4 md:-translate-y-28 
           transition-transform duration-700 
           md:mt-10 
-          ${useTopLogo ? "-mt-4" : "md:mt-36 relative md:top-28"}
+          ${useTopLogo ? "-mt-4 tab:mt-2" : "md:mt-36 relative md:top-28"}
           `,
           logoContainerClassName
         )}
