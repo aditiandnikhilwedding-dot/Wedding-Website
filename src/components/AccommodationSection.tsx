@@ -18,7 +18,7 @@ const AccommodationSection = () => {
       {/* Venue Card */}
       <div className="max-w-3xl mx-auto">
         {/* Venue Details */}
-         <div className="text-center mt-8 space-y-4">
+        <div className="text-center mt-8 space-y-4">
           <p className="font-serif text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
             All of our wedding celebrations will take place at the wedding
             hotel, and we'd love for everyone to stay with us.
@@ -51,12 +51,12 @@ const AccommodationSection = () => {
               VENUE
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 mb-6">
-              <div className="bg-amber-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap">
+              <a href="https://royalretreatudaipur.in/" target="_blank" rel="noopener noreferrer" className="bg-amber-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap hover:bg-amber-800 transition-colors cursor-pointer">
                 <span className="font-serif text-lg md:text-xl">
                   Royal Retreat, Udaipur
                 </span>
                 <Sparkles className="w-5 h-5 flex-shrink-0" />
-              </div>
+              </a>
             </div>
             <p className="font-serif text-xs md:text-sm text-amber-900/80 max-w-2xl mx-auto">
               Village-Hawala, Badi Hawala Rd, Udaipur, Bari, Rajasthan 313011
@@ -66,7 +66,7 @@ const AccommodationSection = () => {
           {/* Embedded Map */}
           <div className="rounded-2xl overflow-hidden shadow-md mb-6 bg-green-100">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.9288584752015!2d73.68849!3d24.528605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e6d32e56d80f%3A0x4d9f8e8e8e8e8e8e!2sRoyal%20Retreat%20Udaipur!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.456789!2d73.6435781!3d24.6067543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967ef80148fc5a1%3A0xbcb7e191d0c5ddf1!2sThe%20Royal%20Retreat%20Resort%20%26%20Spa!5e0!3m2!1sen!2sin!4v1706614400000"
               width="100%"
               height="280"
               style={{ border: 0 }}
