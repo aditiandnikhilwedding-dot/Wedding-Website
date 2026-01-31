@@ -18,29 +18,21 @@ const AccommodationSection = () => {
       {/* Venue Card */}
       <div className="max-w-3xl mx-auto">
         {/* Venue Details */}
-        <div className="text-center mt-8 space-y-4">
+         <div className="text-center mt-8 space-y-4">
           <p className="font-serif text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
             All of our wedding celebrations will take place at the wedding
-            hotel, and we'd lebrations will take Place at tne we love for
-            everyone to stay with us.
+            hotel, and we'd love for everyone to stay with us.
           </p>
           <p className="font-serif text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
             The hotel has been beautifully refurbished and offers a calm,
-            welcoming spac The nearest airport is Udaipur (UDR) to spend these
-            days together. Waking up knowing everyone is close by makes the
-            experience feel easier warmer and more special.
+            welcoming space to spend these days together.Waking up knowing everyone is close by makes the experience feels,easier,warmer and more special.
           </p>
           <p className="font-serif text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
             Guests will book and pay for their own rooms, and we've arranged
-            locked-in 4-5 hours, depending on traffic and breaks. room rates
-            exclusively for our guests. A booking link with full details will be
-            s exclusively for our guests. A booking link w shared closer to the
-            date.
+            locked-in room rates exclusively for our guests. A booking link with full details will be shared closer to the date.
           </p>
           <p className="font-serif text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            All food and drinks during the wedding events will be taken care
-            during the wedaing event napter of our lves, we re incredibly
-            graterui to celebrate our wedeis of by us, breakfast too.
+            All food and drinks during the wedding events will be taken care of by us, breakfast too.
           </p>
         </div>
 
