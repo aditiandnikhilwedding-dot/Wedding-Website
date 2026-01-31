@@ -75,7 +75,7 @@ const WeddingHeader = ({
       {showNav && (
         <nav
   className={cn(
-    "mt-4 md:mt-6 w-full flex flex-row items-start justify-between md:justify-center px-2 md:px-12 overflow-x-hidden md:overflow-x-visible",
+    "mt-4 tab:mt-16 lg:mt-6 w-full flex flex-row items-start justify-between md:justify-center px-2 md:px-12 overflow-x-hidden md:overflow-x-visible",
     navClassName
   )}
 >
