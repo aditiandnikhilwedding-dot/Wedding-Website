@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -13,6 +14,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        tab: "480px", /* tablet / tab view: nav spacing applies from this width (covers 511px) */
+      },
       fontFamily: {
         'cormorant': ['Cormorant Garamond', 'serif'],
         'playfair': ['Playfair Display', 'serif'],
@@ -138,5 +142,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
