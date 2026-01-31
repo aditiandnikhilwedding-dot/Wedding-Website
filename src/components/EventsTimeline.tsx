@@ -13,7 +13,7 @@ interface EventItemProps {
   title: string;
   date: string;
   time: string;
-  description: string | React.ReactNode;
+ description: React.ReactNode | (string | React.ReactNode)[];
   icon?: string;
   isLast?: boolean;
   index: number;
@@ -26,89 +26,65 @@ const EventItem = ({
   description,
   icon,
   isLast = false,
-  index,
 }: EventItemProps) => {
-  const isOdd = index % 2 !== 0;
-
   return (
-    <div className={`relative py-10 md:py-16 ${!isLast ? 'border-b border-[#C5A059]/30' : ''}`}>
+    <div className="relative py-12 md:py-16">
+      {/* HORIZONTAL LINE */}
+      {!isLast && (
+        <span className="absolute left-0 right-0 bottom-0 h-[0.5px] bg-[#C5A059]/60" />
+      )}
 
-      {/* 
-        MOBILE: original flex layout
-        DESKTOP: grid layout
-      */}
-     <div
-  className="
-    mx-auto
-    max-w-5xl
-    flex flex-row items-stretch gap-4
-    md:grid md:grid-cols-[1fr_40px_1fr] md:gap-0
-      md:-translate-x-28
-  "
->
-
-
-        {/* LEFT SIDE */}
-        <div
-          className={`
-            w-[40%] md:w-auto
-            flex items-center gap-3 md:gap-10
-            ${isOdd ? 'flex-row-reverse md:justify-start' : 'flex-row justify-end'}
-            ${isOdd ? 'md:pr-6' : 'md:pr-6'}
-          `}
-        >
-          <div className={`text-right ${!isOdd ? 'pl-8 md:pl-0' : ''}`}>
-            <h3 className="font-cormorant text-xl md:text-4xl text-primary italic font-semibold leading-tight">
-              {title.split(' & ').map((part, i) => (
-                <React.Fragment key={i}>
-                  {i > 0 && (
-                    <span className="block text-2xl md:text-3xl my-1">&</span>
-                  )}
-                  {part}
-                </React.Fragment>
-              ))}
-            </h3>
-          </div>
-
-          {/* ICON ON LEFT (ODD) */}
-          {isOdd && icon && (
-            <div className="flex-shrink-0">
-              <div className="w-14 h-14 md:w-28 md:h-28">
-                <img
-                  src={icon}
-                  alt=""
-                  className="w-full h-full object-contain opacity-90"
-                />
-              </div>
-            </div>
-          )}
+      <div
+        className="
+          relative mx-auto max-w-5xl
+          grid grid-cols-[1fr_30px_1.2fr]
+          md:grid-cols-[1fr_40px_1fr]
+          items-stretch
+          md:-translate-x-28
+        "
+      >
+        {/* LEFT — TITLE */}
+        <div className="text-right pr-4 md:pr-6">
+          <h3 className="font-cormorant text-lg md:text-4xl text-primary italic font-semibold leading-tight">
+            {title.split(' & ').map((part, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && (
+                  <span className="block text-xl md:text-3xl my-1">&</span>
+                )}
+                {part}
+              </React.Fragment>
+            ))}
+          </h3>
         </div>
 
-        {/* CENTER LINE */}
-        {/* CENTER LINE */}
-<div className="relative flex flex-col items-center flex-shrink-0">
-  <div className="h-full border-l border-[#C5A059]" />
+        {/* CENTER — VERTICAL LINE (FIXED) */}
+        <div className="relative flex justify-center self-stretch">
+          <span className="absolute inset-y-0 w-px bg-[#C5A059]/70" />
+        </div>
+
+        {/* RIGHT — CONTENT */}
+        <div className="flex gap-4 md:gap-6 items-start pl-4 md:pl-6">
+          <div className="flex-grow max-w-[220px] md:max-w-lg">
+            <p className="font-lora text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.25em] mb-1">
+              {date}
+            </p>
+            <p className="font-lora text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-3">
+              {time}
+            </p>
+
+           <div className="font-lora text-[11px] md:text-sm text-primary leading-relaxed space-y-2">
+  {Array.isArray(description)
+    ? description.map((item, i) => <p key={i}>{item}</p>)
+    : description}
 </div>
 
 
-        {/* RIGHT SIDE */}
-        <div className="flex-grow flex items-center gap-4 md:gap-8 justify-between">
-          <div className="flex-grow pt-1 text-left">
-            <p className="font-lora text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-1">
-              {date}
-            </p>
-            <p className="font-lora text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-4">
-              {time}
-            </p>
-            <div className="font-lora text-xs md:text-sm text-gray-700 leading-relaxed max-w-lg">
-              {description}
-            </div>
           </div>
 
-          {/* ICON ON RIGHT (EVEN) */}
-          {!isOdd && icon && (
-            <div className="flex-shrink-0">
-              <div className="w-14 h-14 md:w-28 md:h-28">
+          {/* ICON */}
+          {icon && (
+            <div className="flex-shrink-0 pt-1">
+              <div className="w-10 h-10 md:w-28 md:h-28">
                 <img
                   src={icon}
                   alt=""
@@ -118,11 +94,12 @@ const EventItem = ({
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
 };
+
+
 
 const EventsTimeline = () => {
   const events = [
@@ -130,8 +107,12 @@ const EventsTimeline = () => {
       title: 'The Royal Arrival',
       date: 'MONDAY, OCTOBER 26, 2026',
       time: '12 PM ONWARDS',
-      description:
-        'Take your time, unpack, catch up with familiar faces, and ease into the days ahead. There might be a cold cocktail waiting for you.',
+      
+      description: [
+    'Arrivals and Check-in',
+    'Take your time,unpack,catch up with familiar faces,and ease into the days ahead.',
+    'There might be a cold cocktail waiting for you, who knows',
+  ],
       icon: icon1,
     },
     {
@@ -139,7 +120,10 @@ const EventsTimeline = () => {
       date: 'MONDAY, OCTOBER 26, 2026',
       time: '6 PM ONWARDS',
       description:
-        'Our Sangeet and mehndi will start in the early evening and flow late into the night with henna, music, and dancing.',
+        ['Our Sangeet and mehndi will start in the early evening and flow late into the night with henna, music, and dancing and plenty of time together.',
+          'This is where the celebration truly begin',
+          "We can't wait to dance with you"
+        ],
       icon: sangeetIcon,
     },
     {
@@ -147,7 +131,9 @@ const EventsTimeline = () => {
       date: 'TUESDAY, OCTOBER 27, 2026',
       time: '8 AM',
       description:
-        'A Ganesh Pooja and blessing ceremony to begin the wedding day with intention, gratitude, and grace.',
+        ['A Ganesh Pooja and blessing ceremony to begin the wedding day with intention, gratitude, and grace.',
+          'Your prayers and good wishes mean the world to us.'
+        ],
       icon: blessings,
     },
     {
@@ -155,7 +141,9 @@ const EventsTimeline = () => {
       date: 'TUESDAY, OCTOBER 27, 2026',
       time: '11 AM ONWARDS',
       description:
-        "A joyful Haldi ceremony filled with colour and laughter. Wear something you won't be too attached to!",
+        ["A joyful Haldi ceremony filled with colour and laughter,and traditional and very likely a bit of mess.",
+          "Wear something you won't be too attached to."
+        ],
       icon: haldiIcon,
     },
     {
@@ -166,9 +154,12 @@ const EventsTimeline = () => {
         <>
           <p className="font-bold text-primary">Jaan Entrance | 4:00 PM</p>
           <p className="mb-2">The groom’s arrival, filled with music and energy.</p>
-          <p className="font-bold text-primary">Ceremony | 5:30 PM</p>
-          <p>As the sun sets, the ceremony unfolds surrounded by family and love.</p>
+          <p>Please join in and celebrate with us.</p>
+          <p className="font-bold text-primary">Wedding Ceremony | 5:30 PM-7:00 PM</p>
+          <p>As the sun begins to set,Aditi will make her entrance,and the ceremony will unhold sorrounded by family,tradition, and love.</p>
+          <p>Your pressence and blessings complete the moment for us.</p>
         </>
+       
       ),
       icon: weddingIcon,
     },
@@ -177,7 +168,11 @@ const EventsTimeline = () => {
       date: 'WEDNESDAY, OCTOBER 28, 2026',
       time: '11 AM ONWARDS',
       description:
-        'A high-energy daytime celebration with music and colour to set the tone for the final night.',
+        ["This is not a wind-down,it's the warm-up."
+          ,'A high-energy daytime celebration with music,colour,and just enough choas to set the tone for the final night.',
+        'Pace yourselves.The best is yet to come.'
+        ],
+          
       icon: poolpartyIcon,
     },
     {
@@ -185,7 +180,7 @@ const EventsTimeline = () => {
       date: 'WEDNESDAY, OCTOBER 28, 2026',
       time: '7 PM ONWARDS',
       description:
-        'Dinner, music, dancing, and one last night together to celebrate our new beginning.',
+        ['Dinner, music, dancing, and one last night together.'],
       icon: finaleIcon,
     },
   ];
