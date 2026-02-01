@@ -24,7 +24,7 @@ const destinations: Destination[] = [
   },
   {
     image: destination2,
-    title: "Pondicherry (Puducherry) - French + Calm",
+    title: "Pondicherry (Puducherry) – French + Calm",
     octoberTitle: "Why October works:",
     octoberPoints: ["Coastal breeze, peaceful vibe", "Less touristy than Goa"],
   },
@@ -42,21 +42,22 @@ const destinations: Destination[] = [
     title: "Jawai Leopard Safari (Luxury + Unique)",
     octoberTitle: "Why it's special:",
     octoberPoints: [
-      "Leopard in natural rocky landscape",
-      "Super exclusive and peacefull",
+      "Leopards in natural rocky landscape",
+      "Super exclusive and peaceful",
       "Luxury tented camps"
     ],
   },
   {
     image: destination5,
     title: "Jaipur + Agra (Royal + Iconic India)",
-    octoberTitle: "Why October works:",
+    octoberTitle: "Why October works::",
     octoberPoints: [
       "Comfortable sightseeing weather",
-      "Festive Season starting",
+      "Festive season starting",
     ],
   },
 ];
+
 
 const ExploreIndiaSection = () => {
   return (
@@ -74,11 +75,10 @@ const ExploreIndiaSection = () => {
         {/* Intro */}
         <div className="text-center mb-16 md:mb-12 max-w-2xl mx-auto">
           <p className="font-serif text-lg text-muted-foreground leading-relaxed">
-            For those wishing to explore more of India, here are a few travel ideas
-            to enjoy before or after the wedding celebrations.
+            For those wishing to explore more of India, here are a few travel ideas to enjoy before or after the wedding celebrations.
           </p>
-          <p className="font-serif text-lg text-muted-foreground leading-relaxed">
-            Late October offers beautiful weather and an ideal time to travel.
+         <p className="font-serif text-lg text-muted-foreground leading-relaxed">
+            Late October offers beautiful weather and is an ideal time to travel.
           </p>
         </div>
 
