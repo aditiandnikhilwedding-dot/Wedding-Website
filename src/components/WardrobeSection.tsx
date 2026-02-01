@@ -56,7 +56,7 @@ const events: WeddingEvent[] = [
     date: "",
     dateImage: dateOct28,
     title: "Poolside Mela",
-    subtitle: "Fun, comfortable outfits; you don't need getting wet or messy",
+    subtitle: "Fun, comfortable outfits; you don't need getting wet or messy.",
     description: [],
     outfitImage: outfit4,
   },
