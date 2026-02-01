@@ -58,11 +58,11 @@ const TravelSection = () => {
         {/* Arrival Info */}
         <div className="space-y-4">
           <p className="font-serif text-foreground leading-relaxed text-center">
-            If you arrive in Udaipur a day earlier, we’d love to begin the celebrations together 
-with a relaxed evening in the heart of the city, good food, and time to settle in 
-before the days ahead. Please let us know if this is part of your plan so we can 
-organise it together.
-
+            If you arrive in Udaipur a day earlier, we’d love to begin the
+            celebrations together with a relaxed evening in the heart of the
+            city, good food, and time to settle in before the days ahead. Please
+            let us know if this is part of your plan so we can organise it
+            together.
           </p>
         </div>
 
@@ -71,9 +71,9 @@ organise it together.
         {/* Flight Info */}
         <div className="space-y-4">
           <p className="font-serif text-foreground leading-relaxed text-center">
-            Once you’ve booked your flights, please share the details with us and we’ll help 
-coordinate travel so everyone arrives comfortably and without stress.
-
+            Once you’ve booked your flights, please share the details with us,
+            and we’ll help coordinate travel so everyone arrives comfortably and
+            without stress.
           </p>
         </div>
       </div>
